@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a130a;
+  --surface: #0f1f0f;
+  --border: #1a3a1a;
+  --accent: #4ade80;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--bg);
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.gradient-title {
+  background: linear-gradient(135deg, #4ade80 0%, #86efac 50%, #bbf7d0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
