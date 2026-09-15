@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import AuthorCard from "@/components/AuthorCard";
 import { Gift, Layers, Calculator, ArrowLeftRight, ArrowUpRight, FlaskConical, CloudSun, Shield, BookOpen, ChevronRight, Check, Copy } from "lucide-react";
 
 export default function HomePage() {
@@ -37,6 +39,38 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* E-E-A-T AUTHOR VERIFICATION */}
+      <AuthorCard />
+
+      {/* VISUAL GAMEPLAY SHOWCASE */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+        <div className="rounded-2xl overflow-hidden border border-green-900/60 bg-green-950/40 p-4">
+          <Image
+            src="/images/garden-header.webp"
+            alt="Grow a Garden Official Roblox Icon"
+            width={512}
+            height={512}
+            className="rounded-xl object-cover w-full h-56 border border-green-800/40"
+            priority
+          />
+          <p className="text-xs text-green-300 mt-2.5 text-center font-medium">
+            Figure 1: Official Grow a Garden Icon by The Garden Game.
+          </p>
+        </div>
+        <div className="rounded-2xl overflow-hidden border border-green-900/60 bg-green-950/40 p-4">
+          <Image
+            src="/images/garden-gameplay.webp"
+            alt="Grow a Garden Farming Plots Arena"
+            width={768}
+            height={432}
+            className="rounded-xl object-cover w-full h-56 border border-green-800/40"
+          />
+          <p className="text-xs text-green-300 mt-2.5 text-center font-medium">
+            Figure 2: Active Crop Plots with Prismatic Sprinklers and Fertilizer Beds.
+          </p>
+        </div>
+      </div>
 
       {/* Grid of Main Features */}
       <section className="space-y-4">
