@@ -76,10 +76,10 @@ export const SOIL_FERTILIZERS_DATA: SoilFertilizer[] = [
 ];
 
 export const GARDEN_CODES_DATA: GardenCode[] = [
-  { id: 'code-harvest2026', code: 'HARVEST2026', reward: '100,000 Sheckles + 5x Mystic Seeds', status: 'ACTIVE', dateAdded: '2026-08-20' },
-  { id: 'code-rainbowbloom', code: 'RAINBOWBLOOM', reward: '2x Prismatic Fertilizer', status: 'ACTIVE', dateAdded: '2026-08-10' },
-  { id: 'code-gardenclub', code: 'GARDENCLUB', reward: 'Free Omni-Rotary Sprinkler', status: 'ACTIVE', dateAdded: '2026-08-01' },
-  { id: 'code-orson', code: 'ORSONASCEND', reward: '50,000 Sheckles + 10x Bio Compost', status: 'ACTIVE', dateAdded: '2026-07-25' },
-  { id: 'code-superseeds', code: 'SUPERSEEDS', reward: '3x Rare Dragon Breath Seeds', status: 'ACTIVE', dateAdded: '2026-07-15' },
-  { id: 'code-wetplot', code: 'WETPLOT', reward: '15,000 Sheckles', status: 'ACTIVE', dateAdded: '2026-07-01' }
+  { id: 'code-harvest2026', code: 'HARVEST2026', reward: '100,000 Sheckles + 5x Mystic Seeds', status: 'ACTIVE', dateAdded: '' },
+  { id: 'code-rainbowbloom', code: 'RAINBOWBLOOM', reward: '2x Prismatic Fertilizer', status: 'ACTIVE', dateAdded: '' },
+  { id: 'code-gardenclub', code: 'GARDENCLUB', reward: 'Free Omni-Rotary Sprinkler', status: 'ACTIVE', dateAdded: '' },
+  { id: 'code-orson', code: 'ORSONASCEND', reward: '50,000 Sheckles + 10x Bio Compost', status: 'ACTIVE', dateAdded: '' },
+  { id: 'code-superseeds', code: 'SUPERSEEDS', reward: '3x Rare Dragon Breath Seeds', status: 'ACTIVE', dateAdded: '' },
+  { id: 'code-wetplot', code: 'WETPLOT', reward: '15,000 Sheckles', status: 'ACTIVE', dateAdded: '' }
 ];
