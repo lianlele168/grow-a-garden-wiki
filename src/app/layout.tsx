@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://growagarden.robloxwikihub.com" },
   metadataBase: new URL("https://growagarden.robloxwikihub.com"),
   title: { default: "Grow a Garden Wiki — Seeds, Codes, Calculator & Trading", template: "%s | Grow a Garden Wiki" },
   description: "Ultimate Grow a Garden guide — active codes, crop tier list, mutation value calculator, weather events, gear sprinklers, ascension rebirth, soil fertilizers, and trading value list.",
