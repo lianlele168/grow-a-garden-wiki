@@ -1,3 +1,7 @@
+export const metadata = {
+  alternates: { canonical: "https://growagarden.robloxwikihub.com/beginner-guide" },
+};
+
 export default function BeginnerGuidePage() {
   const steps = [
     { n: "1", title: "Plant Your First Seeds", desc: "Start with free Green Bean seeds (use code TEAMGREENBEAN). Plant in your 3x3 grid and water every few minutes.", icon: "🌱" },

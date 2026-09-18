@@ -1,3 +1,7 @@
+export const metadata = {
+  alternates: { canonical: "https://growagarden.robloxwikihub.com/soil-fertilizer" },
+};
+
 export default function SoilFertilizerPage() {
   const soils = [
     { name: "Dirt Soil", cost: "Free (Default)", speed: "1.0x", note: "Starting ground" },

@@ -1,3 +1,7 @@
+export const metadata = {
+  alternates: { canonical: "https://growagarden.robloxwikihub.com/crop-tier-list" },
+};
+
 export default function CropTierListPage() {
   const tiers = [
     {

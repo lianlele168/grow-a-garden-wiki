@@ -1,3 +1,7 @@
+export const metadata = {
+  alternates: { canonical: "https://growagarden.robloxwikihub.com/trading-values" },
+};
+
 export default function TradingValuesPage() {
   const pets = [
     { name: "Black Dragon 🐉", value: "80,000 Trade Tokens", tier: "S+", note: "Highest market demand pet" },

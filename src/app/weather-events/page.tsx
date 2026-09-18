@@ -1,3 +1,7 @@
+export const metadata = {
+  alternates: { canonical: "https://growagarden.robloxwikihub.com/weather-events" },
+};
+
 export default function WeatherEventsPage() {
   const events = [
     { name: "Blood Moon 🌑", time: "Night Only", bonus: "High chance for Bloodlit mutation (3.5x value multiplier)", desc: "The rarest night event. Protect your plot — stealing is 2x more aggressive during Blood Moon." },

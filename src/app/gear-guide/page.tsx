@@ -1,3 +1,7 @@
+export const metadata = {
+  alternates: { canonical: "https://growagarden.robloxwikihub.com/gear-guide" },
+};
+
 export default function GearGuidePage() {
   const sprinklers = [
     { name: "Common Sprinkler", price: "500 Sheckles", range: "8 Studs (1x1 Plot)", speed: "+25% Growth Speed", rarity: "Common" },

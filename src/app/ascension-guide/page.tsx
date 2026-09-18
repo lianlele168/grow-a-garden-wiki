@@ -1,3 +1,7 @@
+export const metadata = {
+  alternates: { canonical: "https://growagarden.robloxwikihub.com/ascension-guide" },
+};
+
 export default function AscensionGuidePage() {
   const requirements = [
     { name: "1 Trillion Sheckles", desc: "Accumulated cash balance required to initiate Ascension at Orson the Merchant." },

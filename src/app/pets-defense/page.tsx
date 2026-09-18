@@ -1,3 +1,7 @@
+export const metadata = {
+  alternates: { canonical: "https://growagarden.robloxwikihub.com/pets-defense" },
+};
+
 export default function PetsDefensePage() {
   const defenses = [
     { plant: "Venus Flytrap", role: "Anti-Steal S-Tier", desc: "Auto-snaps at any player who attempts to harvest crops on your plot without permission. Deals massive damage." },
