@@ -4,9 +4,9 @@ export const metadata = {
 
 export default function PetsDefensePage() {
   const defenses = [
-    { plant: "Venus Flytrap", role: "Anti-Steal S-Tier", desc: "Auto-snaps at any player who attempts to harvest crops on your plot without permission. Deals massive damage." },
-    { plant: "Dragon's Breath", role: "AOE Perimeter Burn", desc: "Emits a ring of fire around garden borders. Stops multiple thieves simultaneously during nighttime." },
-    { plant: "Hypno Bloom", role: "Stun & Disorient", desc: "Inflicts a 5-second stun on approaching players, giving you time to defend your plot." },
+    { plant: "Venus Flytrap", role: "Divine Pack Crop", desc: "Divine carnivorous crop from the Angry Plant pack. A thematic centerpiece crop with strong baseline value." },
+    { plant: "Beanstalk", role: "Prismatic Anchor", desc: "Prismatic multi-harvest crop at 10,000,000 Sheckles. Plant it early — it pays across every subsequent harvest cycle." },
+    { plant: "Moon Blossom", role: "Lunar Event Crop", desc: "Divine moon-themed flower from the Moonlight pack. Pairs perfectly with Moonlit (x2) night-event farming." },
   ];
 
   const pets = [
@@ -18,12 +18,12 @@ export default function PetsDefensePage() {
   return (
     <div className="space-y-8">
       <div className="border-b border-slate-800 pb-4">
-        <h1 className="text-3xl font-black text-white">Grow a Garden Pets & Anti-Theft Defense Guide</h1>
-        <p className="text-slate-400 text-sm mt-1">Protect your high-value mutated crops from nighttime thieves with defensive plants and companion pets.</p>
+      <h1 className="text-3xl font-black text-white">Grow a Garden Pets & High-Value Crop Guide</h1>
+      <p className="text-slate-400 text-sm mt-1">Build your garden around real high-value crops and companion pets, then cash in on weather-event mutations.</p>
       </div>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-bold text-rose-400">🛡️ Anti-Theft Defensive Plant Layout</h2>
+        <h2 className="text-xl font-bold text-rose-400">🛡️ High-Value Crop Layout</h2>
         <div className="grid gap-4 md:grid-cols-3">
           {defenses.map((d) => (
             <div key={d.plant} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-2">

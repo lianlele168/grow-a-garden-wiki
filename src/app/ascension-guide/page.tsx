@@ -13,7 +13,7 @@ export default function AscensionGuidePage() {
     { perk: "Garden Coins Reward", effect: "Earn 10-50 Garden Coins per ascension to unlock prestige shop items.", priority: "Essential" },
     { perk: "Permanent Growth Speed +25%", effect: "Passive speed boost applied across all plots permanently.", priority: "High" },
     { perk: "Unlocks Mystic Soil", effect: "Allows purchase of 3.5x speed Mystic Soil from Goliath NPC.", priority: "High" },
-    { perk: "Mutation Luck Multiplier", effect: "+10% chance for Rainbow and Golden mutations.", priority: "Medium" },
+    { perk: "Mutation Luck Multiplier", effect: "+10% chance for Rainbow (x50) and Gold (x20) mutations.", priority: "Medium" },
   ];
 
   return (

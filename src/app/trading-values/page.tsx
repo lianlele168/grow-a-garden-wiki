@@ -6,16 +6,17 @@ export default function TradingValuesPage() {
   const pets = [
     { name: "Black Dragon 🐉", value: "80,000 Trade Tokens", tier: "S+", note: "Highest market demand pet" },
     { name: "Ice Dragon 🧊", value: "45,000 Trade Tokens", tier: "S", note: "Auto-freezes plot thieves" },
-    { name: "Golden Butterfly 🦋", value: "30,000 Trade Tokens", tier: "S", note: "+25% Golden mutation rate" },
+    { name: "Golden Butterfly 🦋", value: "30,000 Trade Tokens", tier: "S", note: "+25% Gold mutation rate" },
     { name: "Star Fruit Pet 🌟", value: "15,000 Trade Tokens", tier: "A", note: "Passively spawns Star Seeds" },
     { name: "Guard Bear 🐻", value: "5,000 Trade Tokens", tier: "B", note: "Basic plot defense companion" },
   ];
 
   const mutatedCrops = [
-    { crop: "Golden Dragon's Breath", value: "~17,000 Sheckles / Trade Token equivalent", demand: "High" },
-    { crop: "Rainbow Ghost Pepper", value: "~3,100 Sheckles", demand: "Very High" },
-    { crop: "Bloodlit Moon Bloom", value: "~2,500 Sheckles", demand: "High" },
-    { crop: "Electric Venus Flytrap", value: "~1,750 Sheckles", demand: "Medium" },
+    { crop: "Dawnbound crop (any)", value: "x150 multiplier — sunrise event, highest tier", demand: "Extreme" },
+    { crop: "Rainbow Beanstalk", value: "Rainbow growth mutation = x50 on a Prismatic multi-harvest crop", demand: "Very High" },
+    { crop: "Gold Sugar Apple", value: "Gold growth mutation = x20 on a Prismatic staple", demand: "Very High" },
+    { crop: "Shocked Moon Melon", value: "Shocked x100 — thunderstorm lightning strike", demand: "High" },
+    { crop: "Bloodlit Candy Blossom", value: "Bloodlit x4 — Blood Moon event", demand: "High" },
   ];
 
   return (
@@ -42,7 +43,8 @@ export default function TradingValuesPage() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-bold text-white">🌾 Rare Mutated Crop Trading Reference</h2>
+        <h2 className="text-xl font-bold text-white">🌾 Mutation Multiplier Trading Reference</h2>
+        <p className="text-xs text-slate-500">Fruit trade value scales with the official mutation formula (growth + Σ environmental − count + 1) times the fruit's base value and weight — the rows below rank the multiplier combos traders chase most, rather than quoting invented flat prices.</p>
         <div className="grid gap-4 md:grid-cols-2">
           {mutatedCrops.map((c) => (
             <div key={c.crop} className="bg-slate-900 border border-slate-800 rounded-xl p-5 space-y-2">

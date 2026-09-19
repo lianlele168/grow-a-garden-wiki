@@ -2,19 +2,26 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import AuthorCard from "@/components/AuthorCard";
-import { CROPS_DATA, MUTATIONS_DATA } from "@/data/wikiData";
+import { CROPS_DATA, MUTATIONS_DATA, officialMutationMultiplier } from "@/data/wikiData";
 import { Calculator, Sparkles, Sprout } from "lucide-react";
+
+const GROWTH_MUTATIONS = MUTATIONS_DATA.filter((m) => m.category === "Growth");
+const ENV_MUTATIONS = MUTATIONS_DATA.filter((m) => m.category === "Environmental");
 
 export default function CalculatorPage() {
   const [selectedCrop, setSelectedCrop] = useState(CROPS_DATA[0].name);
+  const [growthMut, setGrowthMut] = useState<string>("None");
   const [activeMuts, setActiveMuts] = useState<string[]>([]);
   const [quantity, setQuantity] = useState(1);
 
   const crop = CROPS_DATA.find((c) => c.name === selectedCrop) || CROPS_DATA[0];
-  const totalMult = activeMuts.reduce((acc, mutName) => {
-    const found = MUTATIONS_DATA.find((m) => m.name === mutName);
-    return acc * (found ? found.multiplier : 1);
-  }, 1);
+  const growthMult = growthMut === "None" ? 1 : GROWTH_MUTATIONS.find((m) => m.name === growthMut)?.multiplier ?? 1;
+  const envMults = activeMuts.map(
+    (name) => ENV_MUTATIONS.find((m) => m.name === name)?.multiplier ?? 0
+  );
+  // Official Grow a Garden formula:
+  // total = growth + SUM(environmental) - environmentalCount + 1
+  const totalMult = officialMutationMultiplier(growthMult, envMults);
 
   const toggleMutation = (name: string) => {
     setActiveMuts((prev) =>
@@ -22,7 +29,9 @@ export default function CalculatorPage() {
     );
   };
 
-  const totalValue = Math.round(crop.basePrice * totalMult * quantity);
+  // Reference scale only: documented SEED price x multiplier. Actual fruit sell
+  // value additionally depends on fruit weight, which the game rolls per fruit.
+  const referenceValue = Math.round(crop.seedPrice * totalMult * quantity);
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -33,23 +42,23 @@ export default function CalculatorPage() {
         name: "How do stacked mutations work in Grow a Garden?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Mutations multiply multiplicatively rather than additively. For example, a Golden crop (20x) combined with Rainbow (4x) results in an 80x total sell price multiplier on base Sheckles.",
+          text: "Grow a Garden uses the official formula: total multiplier = growth mutation + sum of environmental mutations - number of environmental mutations + 1. A fruit can hold only one growth mutation (Gold x20 or Rainbow x50), while environmental mutations such as Wet (x2) and Bloodlit (x4) stack. Example: Gold + Wet + Frozen = 20 + 2 + 10 - 2 + 1 = 31x.",
         },
       },
       {
         "@type": "Question",
-        name: "What is the highest value crop in Grow a Garden?",
+        name: "What is the highest mutation multiplier in Grow a Garden?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Dragon's Breath is the highest baseline crop at 850 Sheckles per fruit, featuring 5 multi-harvest stages per seed.",
+          text: "Dawnbound (x150) from the sunrise event is the highest environmental mutation, followed by Voidtouched (x135), Disco (x125), and Celestial/Galactic (x120). The strongest growth mutation is Rainbow (x50).",
         },
       },
       {
         "@type": "Question",
-        name: "How can I trigger the Golden mutation reliably?",
+        name: "What is the most expensive seed in Grow a Garden?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Golden mutations have a 1/500 baseline natural spawn chance, but applying Alchemist Golden Dust or planting in Mystic Prismatic Soil increases the probability by up to 10%.",
+          text: "Maple Resin (Transcendent, Fall Traveling Merchant) costs 1,500,000,000 Sheckles. In Sam's always-stocked stall the priciest seed is Romanesco (Prismatic, 88,000,000 Sheckles), and Crimson Thorn is Robux-only at 1,149 Robux.",
         },
       },
     ],
@@ -87,7 +96,7 @@ export default function CalculatorPage() {
           Crop Mutation & Profit Calculator
         </h1>
         <p className="text-slate-300 text-sm mt-2 max-w-2xl">
-          Simulate stacked mutation multipliers (Golden, Rainbow, Disco) across all 16 farm crops to determine exact harvest sell values before trading.
+          Built on the official mutation formula — one growth mutation (Gold ×20 / Rainbow ×50) plus stackable environmental mutations (Wet ×2 … Dawnbound ×150) — across 90+ real documented crops and their verified seed prices.
         </p>
       </div>
 
@@ -107,22 +116,50 @@ export default function CalculatorPage() {
             >
               {CROPS_DATA.map((c) => (
                 <option key={c.id} value={c.name}>
-                  {c.name} ({c.basePrice} coins - Tier {c.tier})
+                  {c.name} ({c.rarity} — {c.seedPrice > 0 ? `${c.seedPrice.toLocaleString()} ${c.currency}` : c.robuxPrice > 0 ? `${c.robuxPrice} Robux` : "pack/quest"})
                 </option>
               ))}
             </select>
-            <div className="text-xs text-slate-400 flex justify-between">
-              <span>Base Value: <strong className="text-emerald-400">{crop.basePrice} coins</strong></span>
-              <span>Growth Cycle: <strong className="text-green-300">{crop.growthTime}</strong></span>
+            <div className="text-xs text-slate-400 flex justify-between flex-wrap gap-1">
+              <span>Seed Price: <strong className="text-emerald-400">{crop.seedPrice > 0 ? `${crop.seedPrice.toLocaleString()} ${crop.currency}` : crop.robuxPrice > 0 ? `${crop.robuxPrice} Robux` : "Pack / Quest"}</strong></span>
+              <span>Rarity: <strong className="text-green-300">{crop.rarity}</strong></span>
+              <span>Harvest: <strong className="text-green-300">{crop.multiHarvest === undefined ? "Varies" : crop.multiHarvest ? "Multi-Harvest" : "Single"}</strong></span>
+            </div>
+            <p className="text-[11px] text-slate-500">Source: {crop.source}</p>
+          </div>
+
+          <div className="bg-slate-900/90 border border-green-900/60 rounded-2xl p-6 space-y-4">
+            <h2 className="text-base font-bold text-white flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-yellow-400" /> 2. Growth Mutation (one per fruit)
+            </h2>
+            <div className="grid grid-cols-3 gap-2">
+              {["None", ...GROWTH_MUTATIONS.map((m) => m.name)].map((name) => {
+                const m = GROWTH_MUTATIONS.find((x) => x.name === name);
+                const isActive = growthMut === name;
+                return (
+                  <button
+                    key={name}
+                    onClick={() => setGrowthMut(name)}
+                    className={`text-xs px-3 py-2.5 rounded-xl border font-bold transition flex items-center justify-between ${
+                      isActive
+                        ? "bg-green-950/80 border-green-500 text-green-300 shadow-md shadow-green-500/20"
+                        : "bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700"
+                    }`}
+                  >
+                    <span>{name}</span>
+                    {m && <span className={m.colorClass}>×{m.multiplier}</span>}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
           <div className="bg-slate-900/90 border border-green-900/60 rounded-2xl p-6 space-y-4">
             <h2 className="text-base font-bold text-white flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-yellow-400" /> 2. Stacked Active Mutations
+              <Sparkles className="w-4 h-4 text-blue-400" /> 3. Stackable Environmental Mutations
             </h2>
-            <div className="grid grid-cols-2 gap-2">
-              {MUTATIONS_DATA.map((m) => {
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-72 overflow-y-auto pr-1">
+              {ENV_MUTATIONS.map((m) => {
                 const isActive = activeMuts.includes(m.name);
                 return (
                   <button
@@ -144,7 +181,7 @@ export default function CalculatorPage() {
 
           <div className="bg-slate-900/90 border border-green-900/60 rounded-2xl p-6 space-y-3">
             <div className="flex justify-between text-sm">
-              <span className="font-bold text-white">3. Harvest Quantity</span>
+              <span className="font-bold text-white">4. Harvest Quantity</span>
               <span className="font-mono text-emerald-400 font-bold">{quantity} units</span>
             </div>
             <input
@@ -162,22 +199,29 @@ export default function CalculatorPage() {
         <div className="space-y-6">
           <div className="bg-gradient-to-br from-green-950/80 to-slate-950 border border-green-500/40 rounded-2xl p-6 space-y-4">
             <h2 className="text-xs font-black uppercase tracking-wider text-green-400">
-              Estimated Total Sheckles Return
+              Total Mutation Multiplier (official formula)
             </h2>
             <div className="text-4xl sm:text-5xl font-black text-white font-mono">
-              {totalValue.toLocaleString()}
-              <span className="text-sm font-sans font-medium text-slate-400 ml-2">Sheckles</span>
+              {totalMult.toLocaleString()}
+              <span className="text-sm font-sans font-medium text-slate-400 ml-2">x value</span>
             </div>
             <div className="pt-3 border-t border-green-900/50 space-y-2 text-xs text-slate-300">
               <div className="flex justify-between">
-                <span>Total Multiplier Stack:</span>
-                <span className="font-bold text-yellow-300 font-mono">{totalMult}x</span>
+                <span>Formula:</span>
+                <span className="font-bold text-green-300 text-right">{growthMut === "None" ? "1" : growthMult} {envMults.length > 0 ? `+ ${envMults.join(" + ")} - ${envMults.length} + 1` : "(no environmental)"}</span>
               </div>
               <div className="flex justify-between">
-                <span>Multi-Harvest Capacity:</span>
-                <span className="font-bold text-green-300">{crop.multiHarvest ? `${crop.harvestCount} Yields` : "Single Harvest"}</span>
+                <span>Harvest Capacity:</span>
+                <span className="font-bold text-green-300">{crop.multiHarvest === undefined ? "Varies by crop" : crop.multiHarvest ? "Multi-Harvest" : "Single Harvest"}</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Reference Value (seed price × multiplier × qty):</span>
+                <span className="font-bold text-yellow-300 font-mono">{referenceValue.toLocaleString()} {crop.currency}</span>
               </div>
             </div>
+            <p className="text-[11px] text-slate-500 leading-relaxed">
+              The reference value uses the documented seed price as a scale — actual fruit sell value is base fruit value × multiplier × weight, and base fruit value is rolled per fruit in-game.
+            </p>
           </div>
 
           <div className="grid grid-cols-2 gap-4">

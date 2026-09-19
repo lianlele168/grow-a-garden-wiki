@@ -81,7 +81,7 @@ export default function HomePage() {
           {[
             { title: "Active Codes", href: "/codes", icon: Gift, color: "text-amber-400", desc: "Working promo codes for free Seeds, Sheckles, and Sprinklers." },
             { title: "Crop Tier List", href: "/crop-tier-list", icon: Layers, color: "text-green-400", desc: "S-D grade crop profit tier list with multi-harvest properties." },
-            { title: "Mutation Calculator", href: "/mutation-calculator", icon: Calculator, color: "text-emerald-400", desc: "Calculate total Sheckles based on stacked Rainbow/Golden mutations." },
+            { title: "Mutation Calculator", href: "/mutation-calculator", icon: Calculator, color: "text-emerald-400", desc: "Official mutation formula: Gold x20, Rainbow x50, stackable environmental multipliers." },
             { title: "Trading Values", href: "/trading-values", icon: ArrowLeftRight, color: "text-sky-400", desc: "Market trade values for pets, rare mutations, and Garden Coins." },
             { title: "Ascension Rebirth", href: "/ascension-guide", icon: ArrowUpRight, color: "text-purple-400", desc: "1 Trillion Sheckles Orson Ascension requirements and Garden Coin perks." },
             { title: "Soil & Fertilizer", href: "/soil-fertilizer", icon: FlaskConical, color: "text-cyan-400", desc: "Mystic Soil 3.5x speed multipliers and Double-Yield fertilizers." },
@@ -118,10 +118,10 @@ export default function HomePage() {
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           {[
-            { code: "GARDEN2026", reward: "50,000 Sheckles + Master Sprinkler" },
-            { code: "MUTATION", reward: "2x Rainbow Fertilizer" },
-            { code: "BLOODMOON", reward: "1x Bloodlit Seed Pack" },
-            { code: "FREECOINS", reward: "10x Garden Coins" },
+            { code: "FREESEED", reward: "3x Uncommon Seed Packs / Fall Seed Pack" },
+            { code: "WATERYOPLANTS", reward: "10x Common Watering Cans" },
+            { code: "REMEMBERTODRINKWATER", reward: "1x Common Watering Can" },
+            { code: "TEAMGREENBEAN", reward: "3x Green Bean Seeds" },
           ].map(({ code, reward }) => (
             <div key={code} className="flex items-center justify-between bg-slate-950/80 border border-slate-800 rounded-xl p-3.5">
               <div className="space-y-0.5">

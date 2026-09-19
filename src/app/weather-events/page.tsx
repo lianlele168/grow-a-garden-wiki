@@ -4,12 +4,12 @@ export const metadata = {
 
 export default function WeatherEventsPage() {
   const events = [
-    { name: "Blood Moon 🌑", time: "Night Only", bonus: "High chance for Bloodlit mutation (3.5x value multiplier)", desc: "The rarest night event. Protect your plot — stealing is 2x more aggressive during Blood Moon." },
-    { name: "Rain Storm 🌧️", time: "Anytime", bonus: "2x Crop Growth Speed + Wet mutation (2.0x value)", desc: "Revives wilted crops across the entire server. Great time to plant high-growth seeds." },
-    { name: "Lightning Strike ⚡", time: "Random", bonus: "Electric mutation (2.5x value multiplier)", desc: "Strikes random garden plots. Leaves behind Electric-infused crops with high resale price." },
-    { name: "Snowfall ❄️", time: "Winter / Random", bonus: "Frozen mutation (1.5x value multiplier)", desc: "Freezes crops temporarily, boosting final harvest multiplier when thawed." },
-    { name: "Rainbow Event 🌈", time: "Anytime", bonus: "Rainbow mutation (4.0x value multiplier)", desc: "Spawns a temporary Rainbow Carpet. Massive sell value boost for affected crops." },
-    { name: "Gold Moon 🌕", time: "Night Only", bonus: "Gold Seeds spawn + Golden mutation (20x value)", desc: "Ultra-rare lunar event. Transforms first harvest into 20x Golden value crops." },
+    { name: "Blood Moon 🌑", time: "Night Only", bonus: "Bloodlit mutation (x4 value multiplier)", desc: "The famous red night event. Crops harvested under it gain the Bloodlit multiplier — and the Blood Moon shop sells Blood Banana and Moon Melon seeds." },
+    { name: "Rain Storm 🌧️", time: "Anytime", bonus: "Wet mutation (x2 value multiplier)", desc: "Server-wide rain applies Wet to crops — the most common stacking mutation and a building block for Frozen (x10)." },
+    { name: "Thunderstorm ⚡", time: "Random", bonus: "Shocked mutation (x100 value multiplier)", desc: "Lightning strikes random plots. Shocked is one of the strongest environmental mutations in the game." },
+    { name: "Frost / Snowfall ❄️", time: "Winter / Random", bonus: "Chilled (x2); Wet + frozen conditions merge into Frozen (x10)", desc: "Cold snaps chill crops, and a chilled or wet crop that freezes upgrades into the far stronger Frozen mutation." },
+    { name: "Moonlight Event 🌕", time: "Night", bonus: "Moonlit mutation (x2 value multiplier)", desc: "Nighttime moonlight events apply Moonlit — and feed the Moonlight packs that contain Moon Blossom and Moonflower." },
+    { name: "Sunrise Event 🌅", time: "Dawn", bonus: "Dawnbound mutation (x150 — highest multiplier in the game)", desc: "The rarest timing-based event. A Dawnbound crop outvalues almost any other single mutation stack." },
   ];
 
   return (
@@ -20,9 +20,9 @@ export default function WeatherEventsPage() {
       </div>
 
       <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3">
-        <h2 className="text-lg font-bold text-green-400">💡 Weather Pro Tip: Mutation Clearing Strategy</h2>
+        <h2 className="text-lg font-bold text-green-400">💡 How Mutation Stacking Works</h2>
         <p className="text-xs text-slate-300 leading-relaxed">
-          Crops in Grow a Garden can only hold <strong>ONE mutation at a time</strong>. If a weather event starts (e.g. Rainbow Rain or Blood Moon), crops already carrying low-tier mutations (like Wet or Choc) will <strong>NOT</strong> get the higher weather mutation. Clear low-value mutations before major storms!
+          A fruit holds <strong>ONE growth mutation</strong> (Gold x20 or Rainbow x50) plus <strong>stackable environmental mutations</strong>. The official formula: total multiplier = growth + sum of environmental − environmental count + 1. Example: Gold (20) + Wet (2) + Frozen (10) = 20 + 2 + 10 − 2 + 1 = <strong>31x</strong>. Weather events are how you farm the environmental side of that equation.
         </p>
       </div>
 

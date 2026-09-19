@@ -6,16 +6,16 @@ export default function BeginnerGuidePage() {
   const steps = [
     { n: "1", title: "Plant Your First Seeds", desc: "Start with free Green Bean seeds (use code TEAMGREENBEAN). Plant in your 3x3 grid and water every few minutes.", icon: "🌱" },
     { n: "2", title: "Harvest and Sell", desc: "Walk up to grown crops and harvest. Sell at the Shop stand near spawn. Reinvest coins into better seeds immediately.", icon: "💰" },
-    { n: "3", title: "Upgrade to Multi-Harvest Seeds", desc: "Multi-harvest seeds (Ghost Pepper, Moon Bloom) keep regrowing — no replanting needed. They cost more but save massive time.", icon: "♻️" },
-    { n: "4", title: "Understand Mutations", desc: "Mutations are random visual changes that multiply sell value. Wet (2x), Rainbow (4x), Golden (20x) are the best. Use our Mutation Calculator to know exact values.", icon: "🧬" },
-    { n: "5", title: "Protect Your Crops", desc: "Other players can steal your crops! Plant Venus Flytraps and Dragon's Breath around your garden — they auto-attack thieves.", icon: "🛡️" },
+    { n: "3", title: "Upgrade to Multi-Harvest Seeds", desc: "Multi-harvest seeds (Strawberry, Blueberry, Tomato, later Beanstalk) keep regrowing — no replanting needed. They cost more but save massive time.", icon: "♻️" },
+    { n: "4", title: "Understand Mutations", desc: "Mutations multiply sell value. Wet (2x), Gold (20x), Rainbow (50x) are the headline ones, and environmental mutations stack. Use our Mutation Calculator for the official formula.", icon: "🧬" },
+    { n: "5", title: "Watch Weather Events", desc: "Rain gives Wet (2x), frost gives Chilled (2x), thunderstorms can land Shocked (100x). Harvest right after a big event for maximum payout.", icon: "🛡️" },
     { n: "6", title: "Expand Your Plot", desc: "Buy more garden plots from the Shop. Bigger garden = more simultaneous crops = faster income. Prioritize expansion early.", icon: "📐" },
   ];
 
   const faqs = [
-    { q: "What are the best seeds for beginners?", a: "Start with Green Bean (free from code TEAMGREENBEAN). Upgrade to Ghost Pepper or Moon Bloom as soon as you can afford them — both are multi-harvest S-tier seeds." },
-    { q: "How do mutations work?", a: "Mutations happen randomly when crops grow. They give visual effects (Wet, Rainbow, etc.) and multiply sell value. Higher-tier seeds have better mutation rates. Use the Mutation Calculator to check exact values." },
-    { q: "Can other players steal my crops?", a: "Yes! Plant Venus Flytrap and Dragon's Breath near your garden borders. They attack any non-owner who tries to harvest your crops." },
+    { q: "What are the best seeds for beginners?", a: "Start with Carrot (10 Sheckles), then buy Strawberry (50 Sheckles) — your first multi-harvest seed. Upgrade to Blueberry (400), Tomato (800), and eventually multi-harvest Mythical trees like Mango (100,000)." },
+    { q: "How do mutations work?", a: "A fruit holds one growth mutation (Gold x20 or Rainbow x50) plus stackable environmental mutations (Wet x2, Bloodlit x4, Frozen x10, Shocked x100...). Total multiplier = growth + sum of environmental - count + 1. Use the Mutation Calculator to check exact values." },
+    { q: "What is the most expensive seed?", a: "Maple Resin (Transcendent) costs 1,500,000,000 Sheckles from the Fall Traveling Merchant. In Sam's always-stocked stall, Romanesco tops the list at 88,000,000 Sheckles." },
     { q: "What is the fastest way to make money?", a: "Stack multi-harvest S-tier seeds + defensive plants + actively check for mutations. Using the mutation calculator before selling ensures you never undersell a mutated crop." },
   ];
 
