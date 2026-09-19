@@ -6,7 +6,6 @@ export default function CodesPage() {
   const copy = (code: string) => { navigator.clipboard.writeText(code); setCopied(code); setTimeout(() => setCopied(""), 2000); };
 
   const active = [
-    { code: "FREESEED", reward: "3x Uncommon Seed Packs / Fall Seed Pack", type: "Seed" },
     { code: "WATERYOPLANTS", reward: "10x Common Watering Cans", type: "Tool" },
     { code: "REMEMBERTODRINKWATER", reward: "1x Common Watering Can", type: "Tool" },
     { code: "TEAMGREENBEAN", reward: "3x Green Bean Seeds", type: "Seed" },

@@ -118,7 +118,6 @@ export default function HomePage() {
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           {[
-            { code: "FREESEED", reward: "3x Uncommon Seed Packs / Fall Seed Pack" },
             { code: "WATERYOPLANTS", reward: "10x Common Watering Cans" },
             { code: "REMEMBERTODRINKWATER", reward: "1x Common Watering Can" },
             { code: "TEAMGREENBEAN", reward: "3x Green Bean Seeds" },
