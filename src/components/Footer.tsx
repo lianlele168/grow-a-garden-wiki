@@ -34,6 +34,7 @@ export default function Footer() {
 
         <div className="border-t border-green-900/30 pt-6 text-center text-slate-500 text-[11px]">
           <p>© {new Date().getFullYear()} Grow a Garden Wiki — Community database and strategy toolset for Roblox Grow a Garden.</p>
+          <p className="mt-1">Content AI-assisted, human-reviewed · Data sources cited on page · Contact: lianlele168@gmail.com</p>
         </div>
       </div>
     </footer>
