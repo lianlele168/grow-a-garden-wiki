@@ -29,13 +29,13 @@ export default function AuthorCard() {
           </div>
           <div className="flex items-center gap-1 bg-green-900/50 px-2.5 py-1 rounded-lg border border-green-800/40">
             <UserCheck className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Verified for Patch v2.3 (Orson Ascension)</span>
+            <span>Patch v2.3 (Orson Ascension)</span>
           </div>
         </div>
       </div>
 
       <p className="text-xs text-green-400/80 mt-3 pt-3 border-t border-green-900/40 leading-relaxed">
-        <strong>Review Methodology:</strong> Crop growth times, stacked mutation multiplier mathematics, and mystic soil ROI rates were verified through live farm cycle recordings and verified patch release notes.
+        <strong>Review Methodology:</strong> Crop growth times, mutation multipliers and soil ROI figures are compiled from public sources and community wikis; anything we could not confirm is labeled as unverified.
       </p>
     </div>
   );
