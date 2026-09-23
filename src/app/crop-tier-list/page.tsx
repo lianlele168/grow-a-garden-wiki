@@ -1,4 +1,8 @@
+import PageSchema from "@/components/PageSchema";
+
 export const metadata = {
+  title: { absolute: "Grow a Garden Crop & Seed Tier List" },
+  description: "Every crop and seed ranked by value and growth time — priced tiers from the shop, not invented stats.",
   alternates: { canonical: "https://growagarden.robloxwikihub.com/crop-tier-list" },
 };
 
@@ -61,6 +65,7 @@ const faqs = [
 export default function CropTierListPage() {
   return (
     <div className="space-y-8">
+      <PageSchema title="Grow a Garden Crop & Seed Tier List" description="Every crop and seed ranked by value and growth time — priced tiers from the shop, not invented stats." path="/crop-tier-list" />
       <div className="border-b border-slate-800 pb-4">
         <h1 className="text-3xl font-black text-white">Grow a Garden Crop & Seed Tier List</h1>
         <p className="text-slate-400 text-sm mt-1">Real crops ranked by documented seed price, harvest type, and mutation potential — sourced from the official seed-shop tables, not invented values.</p>

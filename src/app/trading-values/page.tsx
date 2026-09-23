@@ -1,4 +1,8 @@
+import PageSchema from "@/components/PageSchema";
+
 export const metadata = {
+  title: { absolute: "Grow a Garden Trading Values & Market List" },
+  description: "Reference trading values for crops, seeds and gear so trades land near what the community actually pays.",
   alternates: { canonical: "https://growagarden.robloxwikihub.com/trading-values" },
 };
 
@@ -21,6 +25,7 @@ export default function TradingValuesPage() {
 
   return (
     <div className="space-y-8">
+      <PageSchema title="Grow a Garden Trading Values & Market List" description="Reference trading values for crops, seeds and gear so trades land near what the community actually pays." path="/trading-values" />
       <div className="border-b border-slate-800 pb-4">
         <h1 className="text-3xl font-black text-white">Grow a Garden Trading Values & Market List</h1>
         <p className="text-slate-400 text-sm mt-1">Community-verified market reference values for pets, mutated crops, and Trade Tokens.</p>

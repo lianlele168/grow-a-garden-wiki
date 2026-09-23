@@ -1,4 +1,8 @@
+import PageSchema from "@/components/PageSchema";
+
 export const metadata = {
+  title: { absolute: "Grow a Garden Weather & Event Mutations" },
+  description: "How rain, thunderstorms and special events trigger crop mutations, and what each weather window is worth.",
   alternates: { canonical: "https://growagarden.robloxwikihub.com/weather-events" },
 };
 
@@ -14,6 +18,7 @@ export default function WeatherEventsPage() {
 
   return (
     <div className="space-y-8">
+      <PageSchema title="Grow a Garden Weather & Event Mutations" description="How rain, thunderstorms and special events trigger crop mutations, and what each weather window is worth." path="/weather-events" />
       <div className="border-b border-slate-800 pb-4">
         <h1 className="text-3xl font-black text-white">Grow a Garden Weather & Event Mutations</h1>
         <p className="text-slate-400 text-sm mt-1">Server-wide weather events trigger exclusive high-multiplier mutations. Learn how to capitalize on every storm.</p>

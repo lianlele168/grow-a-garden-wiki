@@ -1,4 +1,8 @@
+import PageSchema from "@/components/PageSchema";
+
 export const metadata = {
+  title: { absolute: "Grow a Garden Soil & Fertilizer Guide" },
+  description: "Soil types and fertilizer effects on growth speed and mutation chance in Grow a Garden.",
   alternates: { canonical: "https://growagarden.robloxwikihub.com/soil-fertilizer" },
 };
 
@@ -21,6 +25,7 @@ export default function SoilFertilizerPage() {
 
   return (
     <div className="space-y-8">
+      <PageSchema title="Grow a Garden Soil & Fertilizer Guide" description="Soil types and fertilizer effects on growth speed and mutation chance in Grow a Garden." path="/soil-fertilizer" />
       <div className="border-b border-slate-800 pb-4">
         <h1 className="text-3xl font-black text-white">Grow a Garden Soil & Fertilizer Guide</h1>
         <p className="text-slate-400 text-sm mt-1">Upgrade your plot soil for up to 3.5x crop growth speed and stack high-yield fertilizers.</p>

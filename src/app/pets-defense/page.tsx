@@ -1,4 +1,8 @@
+import PageSchema from "@/components/PageSchema";
+
 export const metadata = {
+  title: { absolute: "Grow a Garden Pets & High-Value Crop Guide" },
+  description: "Which pets guard high-value crops, how pet abilities work, and pairing pets with mutation farming.",
   alternates: { canonical: "https://growagarden.robloxwikihub.com/pets-defense" },
 };
 
@@ -17,6 +21,7 @@ export default function PetsDefensePage() {
 
   return (
     <div className="space-y-8">
+      <PageSchema title="Grow a Garden Pets & High-Value Crop Guide" description="Which pets guard high-value crops, how pet abilities work, and pairing pets with mutation farming." path="/pets-defense" />
       <div className="border-b border-slate-800 pb-4">
       <h1 className="text-3xl font-black text-white">Grow a Garden Pets & High-Value Crop Guide</h1>
       <p className="text-slate-400 text-sm mt-1">Build your garden around real high-value crops and companion pets, then cash in on weather-event mutations.</p>

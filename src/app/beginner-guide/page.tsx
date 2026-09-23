@@ -1,4 +1,8 @@
+import PageSchema from "@/components/PageSchema";
+
 export const metadata = {
+  title: { absolute: "Grow a Garden Beginner Guide" },
+  description: "Start right in Grow a Garden: first seeds, plot layout, early Sheckles and the mistakes new farmers make.",
   alternates: { canonical: "https://growagarden.robloxwikihub.com/beginner-guide" },
 };
 
@@ -21,6 +25,7 @@ export default function BeginnerGuidePage() {
 
   return (
     <div className="space-y-10">
+      <PageSchema title="Grow a Garden Beginner Guide" description="Start right in Grow a Garden: first seeds, plot layout, early Sheckles and the mistakes new farmers make." path="/beginner-guide" />
       <div className="border-b border-slate-800 pb-4">
         <h1 className="text-3xl font-black text-white">Grow a Garden Beginner Guide</h1>
         <p className="text-slate-400 text-sm mt-1">Everything you need to start earning fast in Grow a Garden — seeds, mutations, and defense basics.</p>

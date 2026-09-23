@@ -1,4 +1,8 @@
+import PageSchema from "@/components/PageSchema";
+
 export const metadata = {
+  title: { absolute: "Grow a Garden Gear & Sprinklers Guide" },
+  description: "Sprinklers, tools and gear in Grow a Garden: what each item does and which are worth the Sheckles.",
   alternates: { canonical: "https://growagarden.robloxwikihub.com/gear-guide" },
 };
 
@@ -18,6 +22,7 @@ export default function GearGuidePage() {
 
   return (
     <div className="space-y-8">
+      <PageSchema title="Grow a Garden Gear & Sprinklers Guide" description="Sprinklers, tools and gear in Grow a Garden: what each item does and which are worth the Sheckles." path="/gear-guide" />
       <div className="border-b border-slate-800 pb-4">
         <h1 className="text-3xl font-black text-white">Grow a Garden Gear & Sprinklers Guide</h1>
         <p className="text-slate-400 text-sm mt-1">Complete overview of George's Gear Shop stock — Sprinklers, Watering Cans, and optimal farm layout setups.</p>

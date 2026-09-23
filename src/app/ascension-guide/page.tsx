@@ -1,4 +1,8 @@
+import PageSchema from "@/components/PageSchema";
+
 export const metadata = {
+  title: { absolute: "Grow a Garden Ascension & Rebirth Guide" },
+  description: "Ascension requirements, Garden Coins rewards and permanent perk priorities, from the first 1 Trillion Sheckles rebirth onward.",
   alternates: { canonical: "https://growagarden.robloxwikihub.com/ascension-guide" },
 };
 
@@ -18,6 +22,7 @@ export default function AscensionGuidePage() {
 
   return (
     <div className="space-y-8">
+      <PageSchema title="Grow a Garden Ascension & Rebirth Guide" description="Ascension requirements, Garden Coins rewards and permanent perk priorities, from the first 1 Trillion Sheckles rebirth onward." path="/ascension-guide" />
       <div className="border-b border-slate-800 pb-4">
         <h1 className="text-3xl font-black text-white">Grow a Garden Ascension & Rebirth Guide</h1>
         <p className="text-slate-400 text-sm mt-1">Everything about Orson's Ascension Shop — requirements, Garden Coins, and permanent perk unlock priorities.</p>
